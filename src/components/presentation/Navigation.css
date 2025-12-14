@@ -1,0 +1,153 @@
+.presentation-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 60px;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-button:hover:not(.disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+.nav-button:active:not(.disabled) {
+  transform: translateY(0);
+}
+
+.nav-button.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* 슬라이드 인디케이터 */
+.slide-indicator {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.current-slide {
+  color: #4facfe;
+  font-weight: 600;
+}
+
+.slide-separator {
+  margin: 0 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.total-slides {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 슬라이드 점 네비게이션 */
+.slide-dots {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.presentation-navigation:hover .slide-dots {
+  opacity: 1;
+}
+
+.slide-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.slide-dot:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.2);
+}
+
+.slide-dot.active {
+  background: #4facfe;
+  border-color: #4facfe;
+  box-shadow: 0 0 8px rgba(79, 172, 254, 0.6);
+}
+
+/* 전체화면에서는 더 작게 */
+.slide-container.fullscreen .presentation-navigation {
+  padding: 0.5rem 1rem;
+  min-height: 50px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.slide-container.fullscreen .presentation-navigation:hover {
+  opacity: 1;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .presentation-navigation {
+    padding: 0.5rem 1rem;
+    min-height: 50px;
+  }
+
+  .nav-button {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+    min-width: 35px;
+    height: 35px;
+  }
+
+  .slide-indicator {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .slide-dots {
+    display: none;
+  }
+}

@@ -1,0 +1,246 @@
+.stats-slide {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.stats-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(1px);
+}
+
+.stats-slide .stats-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 헤더 */
+.stats-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: slideInFromTop 0.6s ease-out;
+}
+
+.stats-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stats-subtitle {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+.title-underline {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* 통계 콘텐츠 */
+.stats-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: slideInFromBottom 0.8s ease-out 0.3s both;
+}
+
+/* 기존 Stats 컴포넌트 스타일 오버라이드 */
+.stats-slide .stats-container .stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: none;
+}
+
+.stats-slide .stat-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  animation: statItemFadeIn 0.6s ease-out both;
+}
+
+.stats-slide .stat-item:nth-child(1) { animation-delay: 0.1s; }
+.stats-slide .stat-item:nth-child(2) { animation-delay: 0.2s; }
+.stats-slide .stat-item:nth-child(3) { animation-delay: 0.3s; }
+.stats-slide .stat-item:nth-child(4) { animation-delay: 0.4s; }
+.stats-slide .stat-item:nth-child(5) { animation-delay: 0.5s; }
+.stats-slide .stat-item:nth-child(6) { animation-delay: 0.6s; }
+
+.stats-slide .stat-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.stats-slide .stat-value {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #4facfe;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stats-slide .stat-label {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+/* 장식 요소 */
+.stats-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.decoration-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: float 6s ease-in-out infinite;
+}
+
+.decoration-circle.left {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  top: -150px;
+  left: -150px;
+  animation-delay: -3s;
+}
+
+.decoration-circle.right {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  bottom: -100px;
+  right: -100px;
+}
+
+/* 레이아웃 변형들 */
+
+/* 세로 레이아웃 */
+.stats-layout-vertical .stats-content .stats-container {
+  grid-template-columns: 1fr;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* 가로 레이아웃 */
+.stats-layout-horizontal .stats-content .stats-container {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+/* 애니메이션 */
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes statItemFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .stats-slide {
+    padding: 1rem;
+  }
+
+  .stats-title {
+    font-size: 2.2rem;
+  }
+
+  .stats-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .stats-slide .stats-container .stats-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .stats-slide .stat-item {
+    padding: 1.5rem;
+  }
+
+  .stats-slide .stat-value {
+    font-size: 2.5rem;
+  }
+}

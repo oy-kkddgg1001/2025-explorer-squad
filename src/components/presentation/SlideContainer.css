@@ -1,0 +1,125 @@
+.slide-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #1a1a1a;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-container.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.slide-area {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+  overflow: hidden;
+}
+
+.slide-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* 클릭 가이드 */
+.click-guide {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+}
+
+.slide-area:hover .click-guide {
+  opacity: 1;
+}
+
+.left-guide {
+  left: 2rem;
+}
+
+.right-guide {
+  right: 2rem;
+}
+
+/* 키보드 단축키 안내 */
+.keyboard-hints {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  opacity: 0;
+  animation: fadeInOut 6s ease-in-out;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+}
+
+.keyboard-hints .hint {
+  margin: 0.2rem 0;
+  color: #ccc;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* 슬라이드 전환 애니메이션을 위한 기본 스타일 */
+.slide-content > * {
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .slide-content {
+    padding: 1rem;
+  }
+
+  .click-guide {
+    display: none;
+  }
+
+  .keyboard-hints {
+    display: none;
+  }
+}

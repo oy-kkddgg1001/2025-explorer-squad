@@ -255,17 +255,17 @@ const areaCardsData = [
   {
     title: '발견',
     description: '셔터, 라이브, 매거진 콘텐츠',
-    image: '/images/discovery.png'
+    image: `${import.meta.env.BASE_URL}images/discovery.png`
   },
   {
     title: '리뷰',
     description: '진정성 있는 사용자 후기와 소통',
-    image: '/images/review.png'
+    image: `${import.meta.env.BASE_URL}images/review.png`
   },
   {
     title: '어필리에이트',
     description: '새로운 비즈니스 모델',
-    image: '/images/affiliate.png'
+    image: `${import.meta.env.BASE_URL}images/affiliate.png`
   }
 ]
 

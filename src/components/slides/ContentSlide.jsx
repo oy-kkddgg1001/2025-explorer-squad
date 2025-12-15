@@ -23,9 +23,10 @@ function ContentSlide({ title, content, layout = 'default', background, animatio
         // 코드 블록 처리
         .replace(/```([^`]*)```/gim, '<pre><code>$1</code></pre>')
         .replace(/`([^`]*)`/gim, '<code>$1</code>')
-        // 줄바꿈 처리
-        .replace(/\n\n/gim, '</p><p>')
-        .replace(/\n/gim, '<br>')
+        // 단락 분리 처리 (이중 줄바꿈만)
+        .replace(/\n\n+/gim, '</p><p>')
+        // 단일 줄바꿈은 자연스럽게 공백으로 처리
+        .replace(/\n/gim, ' ')
         // 단락 래핑
         .replace(/^(?!<[hul]|<pre|<div)/gim, '<p>')
         .replace(/(?<!>)$/gim, '</p>')

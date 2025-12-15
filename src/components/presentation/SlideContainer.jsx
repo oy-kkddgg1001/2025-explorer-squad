@@ -15,7 +15,7 @@ function SlideContainer({ slides, onExitPresentation }) {
     toggleFullscreen,
     canGoNext,
     canGoPrev
-  } = useSlideNavigation(slides.length)
+  } = useSlideNavigation(slides.length, onExitPresentation)
 
   // 마우스 클릭으로 네비게이션 (왼쪽/오른쪽 영역)
   const handleSlideClick = (event) => {

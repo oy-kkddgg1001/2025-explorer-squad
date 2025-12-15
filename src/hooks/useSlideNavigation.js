@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 
-export const useSlideNavigation = (totalSlides) => {
+export const useSlideNavigation = (totalSlides, onExitPresentation) => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isFullscreen, setIsFullscreen] = useState(false)
 
@@ -62,9 +62,11 @@ export const useSlideNavigation = (totalSlides) => {
         toggleFullscreen()
         break
       case 'Escape':
+        event.preventDefault()
         if (isFullscreen) {
-          event.preventDefault()
           toggleFullscreen()
+        } else if (onExitPresentation) {
+          onExitPresentation()
         }
         break
       default:
@@ -77,7 +79,7 @@ export const useSlideNavigation = (totalSlides) => {
         }
         break
     }
-  }, [goToNext, goToPrev, goToSlide, toggleFullscreen, totalSlides, isFullscreen])
+  }, [goToNext, goToPrev, goToSlide, toggleFullscreen, totalSlides, isFullscreen, onExitPresentation])
 
   // 키보드 이벤트 리스너 등록
   useEffect(() => {

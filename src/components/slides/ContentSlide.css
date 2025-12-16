@@ -62,10 +62,54 @@
   align-items: flex-start;
   overflow-y: auto;
   padding: 1rem 0;
+  gap: 2rem;
+}
+
+/* 이미지 스타일 - 단일 이미지 */
+.content-image {
+  flex-shrink: 0;
+  max-width: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.content-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 이미지 스타일 - 다중 이미지 (상단 배치) */
+.content-body.with-images-top {
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-images {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.content-image-item {
+  flex: 1;
+  max-width: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.content-image-item img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .content-text {
-  width: 100%;
+  flex: 1;
   font-size: 1.2rem;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.9);

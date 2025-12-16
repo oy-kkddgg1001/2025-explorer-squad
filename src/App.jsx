@@ -161,7 +161,7 @@ const discoveryCardsData = [
   {
     title: '매거진',
     description: '아티클 및 매거진 콘텐츠',
-    image: `${import.meta.env.BASE_URL}images/discovery.png`
+    image: `${import.meta.env.BASE_URL}images/magazine.png`
   }
 ]
 

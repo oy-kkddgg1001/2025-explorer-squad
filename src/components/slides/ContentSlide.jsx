@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './ContentSlide.css'
 
-function ContentSlide({ title, content, layout = 'default', background, animation = true }) {
+function ContentSlide({ title, content, layout = 'default', background, animation = true, image, images }) {
   const [parsedContent, setParsedContent] = useState('')
 
   useEffect(() => {
@@ -67,7 +67,21 @@ function ContentSlide({ title, content, layout = 'default', background, animatio
           </div>
         )}
 
-        <div className="content-body">
+        <div className={`content-body ${images && images.length > 0 ? 'with-images-top' : ''}`}>
+          {images && images.length > 0 && (
+            <div className="content-images">
+              {images.map((img, idx) => (
+                <div key={idx} className="content-image-item">
+                  <img src={img} alt={`${title || ''} ${idx + 1}`} />
+                </div>
+              ))}
+            </div>
+          )}
+          {image && !images && (
+            <div className="content-image">
+              <img src={image} alt={title || ''} />
+            </div>
+          )}
           <div
             className="content-text"
             dangerouslySetInnerHTML={{ __html: parsedContent }}

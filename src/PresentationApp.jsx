@@ -20,8 +20,7 @@ function PresentationApp({ onExitPresentation, discoverySquadData }) {
           {
             type: 'intro',
             title: '발견스쿼드 2025년 성과',
-            subtitle: 'Discovery Squad - 올리브영 콘텐츠 경험의 새로운 혁신',
-            icon: '',
+            subtitle: 'UGC/크리에이터 콘텐츠 생태계를 구축하는 스쿼드',
             author: '발견스쿼드',
             date: '2025년 12월'
           },
@@ -30,60 +29,122 @@ function PresentationApp({ onExitPresentation, discoverySquadData }) {
           {
             type: 'stats',
             title: '2025년 주요 성과',
-            subtitle: '숫자로 보는 발견스쿼드의 임팩트',
-            stats: discoverySquadData?.stats || [
-              { value: '예시 데이터', label: '성과 지표 1' },
-              { value: '예시 데이터', label: '성과 지표 2' },
-              { value: '예시 데이터', label: '성과 지표 3' },
-              { value: '예시 데이터', label: '성과 지표 4' }
+            subtitle: '각 영역별 핵심 성과',
+            stats: [
+              { value: '셔터', label: '전시게시물 49,751건 | 숏폼 9,594건' },
+              { value: '어필리에이트', label: '파트너 8,706명 | 순매출 47.7억' },
+              { value: '리뷰', label: '모던 아키텍처 전환 완료' },
+              { value: '라이브', label: '브랜드사 방송 인프라 구축' }
             ]
           },
 
-          // 3. 기술적 성과
+          // 3. 발견
           {
             type: 'content',
-            title: '기술적 혁신과 성과',
+            title: '발견',
+            images: [
+              `${import.meta.env.BASE_URL}images/discovery.png`,
+              `${import.meta.env.BASE_URL}images/discovery.png`,
+              `${import.meta.env.BASE_URL}images/discovery.png`
+            ],
             content: `
-# 주요 기술 성과
+## 2025년 발견 영역 성과
 
-## 모던 아키텍처 전환
-- **리뷰탭 모던아키텍처**: Web Component(LIT) 기반 전환
-- **37/37 티켓 완료**: 완벽한 마이그레이션 달성
-- **점진적 오픈**: 안정적인 서비스 전환
+### 셔터 성장
+- **387만 유니크 액티브 유저** (작년 대비 약 100만 상승)
+- **49,751건 전시게시물**: 전체 셔터 콘텐츠
 
-## 숏폼 플랫폼 구축
-- **403건 영상 수집**: CBT를 통한 콘텐츠 확보
-- **13건 제보 처리**: 커뮤니티 기반 콘텐츠 생성
-- **셔터 메인 개편**: 새로운 콘텐츠 소비 경험
+### 숏폼 콘텐츠 플랫폼 구축
+- **9,594건 숏폼 오픈**: 올해 새롭게 도입된 숏폼 콘텐츠
+- 현재 셔터에서 일반 게시물보다 숏폼이 더 많음
+- **m3u8 포맷 영상 도입** 안정적 완료
 
-## 인프라 고도화
-- **공통화 모듈 분리**: OpenSearch 클러스터 기반
-- **IA 개편 완료**: 발견탭과 하단탭바 혁신
+### 주요 작업
+- 셔터 메인 개편으로 새로운 콘텐츠 소비 경험
+- CBT를 통한 403건 영상 수집, 13건 제보 처리
             `
           },
 
-          // 4. 올해 대표적인 성과
+          // 4. 어필리에이트
           {
             type: 'content',
-            title: '2025년 대표적인 성과',
+            title: '어필리에이트',
+            images: [
+              `${import.meta.env.BASE_URL}images/affiliate.png`,
+              `${import.meta.env.BASE_URL}images/affiliate.png`,
+              `${import.meta.env.BASE_URL}images/affiliate.png`
+            ],
             content: `
-# 올해 이룬 주요 성과들
+## 2025년 어필리에이트 성과
 
-## 1. 어필리에이트 비즈니스 모델 론칭
-- **새로운 올리브영 비즈니스 모델 추가**
+### 새로운 비즈니스 모델 구축
+- **8,706명 파트너 가입**: 크리에이터 생태계 확장
+- **47.7억 순매출 달성**: 새로운 수익 모델 검증
+- 5일간 매출 5,133만원 달성 (런칭 초기)
+
+### 주요 작업
+- Phase 1/2 체계적 개발 및 런칭
+- 정산금 지급 시스템 구축
 - 성공적인 검증과 안정적 출시 완료
-- Phase 구조 접근법으로 체계적 런칭
 
-## 2. 리뷰탭 모던 아키텍처 전환
-- **기존 문제점 해결과 미래 과제 대응**
-- Web Component(LIT) 기반 전환 완료
-- **완벽한 마이그레이션**으로 스마트한 해결책 제시
+### TODO: 추가 내용 작성
+- (여기에 상세 내용을 추가해주세요)
+            `
+          },
 
-## 3. 숏폼 콘텐츠 생태계 구축
-- **올해 초 숏폼 도입으로 콘텐츠 확장**
-- 현재 셔터에서 일반 게시물보다 숏폼이 더 많음
-- **m3u8 포맷 영상 도입** 안정적 완료
-- 다양한 지면에서 활용 가능한 콘텐츠로 발전
+          // 5. 리뷰
+          {
+            type: 'content',
+            title: '리뷰',
+            images: [
+              `${import.meta.env.BASE_URL}images/review.png`,
+              `${import.meta.env.BASE_URL}images/review.png`,
+              `${import.meta.env.BASE_URL}images/review.png`
+            ],
+            content: `
+## 2025년 리뷰 영역 성과
+
+### 모던 아키텍처 전환 완료
+- **37/37 티켓 100% 완료**: 완벽한 마이그레이션 달성
+- Web Component(LIT) 기반 전환
+- 생산성과 UX 대폭 증대
+
+### 주요 작업
+- 홈&GNB 통합 개발
+- 상품탭 개발 완료
+- API 지원 & 컴포넌트 제공
+- 11/10 점진적 오픈 완료
+
+### TODO: 추가 내용 작성
+- (여기에 상세 내용을 추가해주세요)
+            `
+          },
+
+          // 6. 라이브
+          {
+            type: 'content',
+            title: '라이브',
+            images: [
+              `${import.meta.env.BASE_URL}images/live.png`,
+              `${import.meta.env.BASE_URL}images/live.png`,
+              `${import.meta.env.BASE_URL}images/live.png`
+            ],
+            content: `
+## 2025년 라이브 영역 성과
+
+### 브랜드사 방송 인프라 구축
+- 파트너사 라이브 방송 시스템 전체 인프라 구축
+- 7/10 배포 완료
+- 점진적 오픈 (50% → 70% → 100%)
+
+### 주요 작업
+- 라이브 예고 페이지 생성
+- 제작 어드민 시스템 구축
+- 백포스 수동 제작 프로세스 간소화
+- 1차 11월 배포, 2차 12/11 배포 완료
+
+### TODO: 추가 내용 작성
+- (여기에 상세 내용을 추가해주세요)
             `
           },
 

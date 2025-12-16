@@ -57,11 +57,75 @@
   line-height: 1.3;
 }
 
+/* 하이라이트 섹션 */
+.intro-highlights {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 2.5rem 0;
+  animation: slideInFromBottom 0.8s ease-out 0.5s both;
+}
+
+.highlight-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: 200px;
+}
+
+.highlight-number {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #667eea;
+  opacity: 0.8;
+}
+
+.highlight-text {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* 키워드 태그 */
+.intro-keywords {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+  animation: slideInFromBottom 0.8s ease-out 0.6s both;
+}
+
+.keyword-tag {
+  padding: 0.6rem 1.5rem;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+  border: 1px solid rgba(102, 126, 234, 0.5);
+  border-radius: 25px;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.keyword-tag:hover {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.5));
+  transform: translateY(-2px);
+}
+
 .intro-meta {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  animation: fadeIn 0.8s ease-out 0.6s both;
+  animation: fadeIn 0.8s ease-out 0.7s both;
+  margin-top: 1.5rem;
 }
 
 .intro-author {
@@ -163,6 +227,17 @@
 }
 
 /* 반응형 디자인 */
+@media (max-width: 1024px) {
+  .intro-highlights {
+    gap: 1.5rem;
+  }
+
+  .highlight-item {
+    min-width: 160px;
+    padding: 1.2rem 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .intro-title {
     font-size: 3.2rem;
@@ -186,5 +261,28 @@
 
   .intro-content {
     padding: 2rem;
+  }
+
+  .intro-highlights {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .highlight-item {
+    width: 100%;
+    max-width: 280px;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+
+  .intro-keywords {
+    gap: 0.5rem;
+  }
+
+  .keyword-tag {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
   }
 }

@@ -46,14 +46,16 @@ function ProjectDetail({ project, onClose }) {
             </div>
           </div>
 
-          <div className="detail-section">
-            <h3>🎫 JIRA 티켓</h3>
-            <div className="jira-tags">
-              {project.jira.map((ticket, index) => (
-                <span key={index} className="jira-tag">{ticket}</span>
-              ))}
+          {project.jira && project.jira.length > 0 && (
+            <div className="detail-section">
+              <h3>JIRA 티켓</h3>
+              <div className="jira-tags">
+                {project.jira.map((ticket, index) => (
+                  <span key={index} className="jira-tag">{ticket}</span>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>

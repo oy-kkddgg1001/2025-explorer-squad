@@ -1,6 +1,6 @@
 import './IntroSlide.css'
 
-function IntroSlide({ title, subtitle, background, icon, author, date }) {
+function IntroSlide({ title, subtitle, background, icon, author, date, highlights, keywords }) {
   return (
     <div
       className="intro-slide"
@@ -16,6 +16,25 @@ function IntroSlide({ title, subtitle, background, icon, author, date }) {
         <h1 className="intro-title">{title}</h1>
 
         {subtitle && <h2 className="intro-subtitle">{subtitle}</h2>}
+
+        {highlights && highlights.length > 0 && (
+          <div className="intro-highlights">
+            {highlights.map((item, index) => (
+              <div key={index} className="highlight-item">
+                <span className="highlight-number">{String(index + 1).padStart(2, '0')}</span>
+                <span className="highlight-text">{item}</span>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {keywords && keywords.length > 0 && (
+          <div className="intro-keywords">
+            {keywords.map((keyword, index) => (
+              <span key={index} className="keyword-tag">{keyword}</span>
+            ))}
+          </div>
+        )}
 
         {author && (
           <div className="intro-meta">

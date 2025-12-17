@@ -82,7 +82,7 @@ function PresentationApp({ onExitPresentation, discoverySquadData }) {
 - **론칭 1.5개월 간 15억원 매출 달성**: 유튜브 어필리에이트 대비 +67.5%
 - **1.9만명 활동자 참여**: 수익 활성자 87.5% 증가 (622명→1,166명)
 
-### 압도적 성과 지표
+### 성과 지표
 - **ROAS 1,836%**: 업계 TOP 수준 달성
 - **구매전환율 9.8%**: OY몰 평균 대비 +4.9%p
 - **100만원 이상 매출 달성자**: 128명 (9.8%) 확보
@@ -90,16 +90,14 @@ function PresentationApp({ onExitPresentation, discoverySquadData }) {
 
 ### 콘텐츠 생태계 활성화
 - **숏폼 콘텐츠 27% 증가**: 815건 → 1,036건
-- **발견탭 연계**: 외부 크리에이터 유입으로 고퀄리티 콘텐츠 지속 생산
-- **MCN 파트너십**: 9곳 미팅, 2곳 협업 진행 중
+- **발견탭 연계**: 외부 크리에이터 유입으로 고퀄리티 콘텐츠 지속 생산중
 
 ### 시스템 인프라 구축
 - **다단계 승인 시스템**: 안정성과 효율성 확보
-- **실시간 대시보드**: 투명한 성과 조회 환경 제공
+- **대시보드**: 성과 조회 환경 제공
 - **SAP 연동 자동 정산**: 월단위 성과 집계 및 지급 처리
 
 ### 미래 계획
-- **2027년 400억원 매출 목표** 설정
 - 지속 가능한 인플루언서 생태계 구축
             `
           },
@@ -133,7 +131,7 @@ function PresentationApp({ onExitPresentation, discoverySquadData }) {
             title: '라이브',
             images: [
               `${import.meta.env.BASE_URL}images/live.png`,
-              `${import.meta.env.BASE_URL}images/live.png`,
+              `${import.meta.env.BASE_URL}images/live1.png`,
               `${import.meta.env.BASE_URL}images/live.png`
             ],
             content: `

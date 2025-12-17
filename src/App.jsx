@@ -174,7 +174,7 @@ const otherCardsData = [
   {
     title: '어필리에이트',
     description: '새로운 비즈니스 모델',
-    image: `${import.meta.env.BASE_URL}images/affiliate.png`
+    image: `${import.meta.env.BASE_URL}images/affiliate2.png`
   }
 ]
 

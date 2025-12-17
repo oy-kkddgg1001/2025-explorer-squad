@@ -27,6 +27,7 @@
   justify-content: center;
   cursor: default;
   overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
 }
 
 .slide-content {
@@ -110,41 +111,13 @@
   }
 }
 
-/* 커스텀 스크롤바 */
+/* 프레젠테이션 모드에서는 스크롤바 완전 제거 */
 .slide-area::-webkit-scrollbar {
-  width: 8px;
-}
-
-.slide-area::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-}
-
-.slide-area::-webkit-scrollbar-thumb {
-  background: rgba(79, 172, 254, 0.6);
-  border-radius: 4px;
-}
-
-.slide-area::-webkit-scrollbar-thumb:hover {
-  background: rgba(79, 172, 254, 0.8);
+  display: none;
 }
 
 .content-body::-webkit-scrollbar {
-  width: 6px;
-}
-
-.content-body::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 3px;
-}
-
-.content-body::-webkit-scrollbar-thumb {
-  background: rgba(0, 242, 254, 0.5);
-  border-radius: 3px;
-}
-
-.content-body::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 242, 254, 0.7);
+  display: none;
 }
 
 /* 반응형 디자인 */

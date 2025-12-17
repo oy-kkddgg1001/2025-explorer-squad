@@ -61,6 +61,7 @@
   display: flex;
   align-items: flex-start;
   overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
   padding: 1rem 0;
   gap: 2rem;
 }
@@ -141,13 +142,18 @@
   margin: 0.8rem 0;
 }
 
+.content-text p:empty {
+  margin: 0.4rem 0;
+  height: 0.4rem;
+}
+
 .content-text ul {
-  margin: 1rem 0;
-  padding-left: 2rem;
+  margin: 0.8rem 0;
+  padding-left: 1.8rem;
 }
 
 .content-text li {
-  margin: 0.5rem 0;
+  margin: 0.4rem 0;
   position: relative;
 }
 
@@ -250,23 +256,9 @@
   }
 }
 
-/* 커스텀 스크롤바 */
+/* 프레젠테이션 모드에서는 스크롤바 완전 제거 */
 .content-body::-webkit-scrollbar {
-  width: 6px;
-}
-
-.content-body::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 3px;
-}
-
-.content-body::-webkit-scrollbar-thumb {
-  background: rgba(0, 242, 254, 0.5);
-  border-radius: 3px;
-}
-
-.content-body::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 242, 254, 0.7);
+  display: none;
 }
 
 /* 반응형 디자인 */

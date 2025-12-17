@@ -9,27 +9,83 @@ function ContentSlide({ title, content, layout = 'default', background, animatio
     const parseMarkdown = (markdown) => {
       if (!markdown) return ''
 
-      return markdown
+      // 줄 단위로 분할해서 처리
+      const lines = markdown.split('\n')
+      let result = []
+      let inList = false
+
+      lines.forEach((line, index) => {
+        const trimmedLine = line.trim()
+
+        // 빈 줄 처리
+        if (trimmedLine === '') {
+          if (inList) {
+            result.push('</ul>')
+            inList = false
+          }
+          return
+        }
+
         // 헤딩 처리
-        .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-        .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-        .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+        if (trimmedLine.startsWith('### ')) {
+          if (inList) {
+            result.push('</ul>')
+            inList = false
+          }
+          result.push(`<h3>${trimmedLine.substring(4)}</h3>`)
+          return
+        }
+        if (trimmedLine.startsWith('## ')) {
+          if (inList) {
+            result.push('</ul>')
+            inList = false
+          }
+          result.push(`<h2>${trimmedLine.substring(3)}</h2>`)
+          return
+        }
+        if (trimmedLine.startsWith('# ')) {
+          if (inList) {
+            result.push('</ul>')
+            inList = false
+          }
+          result.push(`<h1>${trimmedLine.substring(2)}</h1>`)
+          return
+        }
+
+        // 리스트 아이템 처리
+        if (trimmedLine.startsWith('- ')) {
+          if (!inList) {
+            result.push('<ul>')
+            inList = true
+          }
+          let listContent = trimmedLine.substring(2)
+          // 볼드/이탤릭 처리
+          listContent = listContent.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+          listContent = listContent.replace(/\*(.*?)\*/g, '<em>$1</em>')
+          result.push(`<li>${listContent}</li>`)
+          return
+        }
+
+        // 일반 텍스트 처리
+        if (inList) {
+          result.push('</ul>')
+          inList = false
+        }
+
         // 볼드/이탤릭 처리
-        .replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>')
-        .replace(/\*(.*)\*/gim, '<em>$1</em>')
-        // 리스트 처리
-        .replace(/^\- (.*$)/gim, '<li>$1</li>')
-        .replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>')
-        // 코드 블록 처리
-        .replace(/```([^`]*)```/gim, '<pre><code>$1</code></pre>')
-        .replace(/`([^`]*)`/gim, '<code>$1</code>')
-        // 단락 분리 처리 (이중 줄바꿈만)
-        .replace(/\n\n+/gim, '</p><p>')
-        // 단일 줄바꿈은 자연스럽게 공백으로 처리
-        .replace(/\n/gim, ' ')
-        // 단락 래핑
-        .replace(/^(?!<[hul]|<pre|<div)/gim, '<p>')
-        .replace(/(?<!>)$/gim, '</p>')
+        let processedLine = trimmedLine
+        processedLine = processedLine.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        processedLine = processedLine.replace(/\*(.*?)\*/g, '<em>$1</em>')
+
+        result.push(`<p>${processedLine}</p>`)
+      })
+
+      // 마지막에 열린 리스트 닫기
+      if (inList) {
+        result.push('</ul>')
+      }
+
+      return result.filter(line => line.trim() !== '').join('\n')
     }
 
     setParsedContent(parseMarkdown(content))

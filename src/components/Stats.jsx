@@ -18,7 +18,14 @@ function Stats({ stats }) {
       {stats.map((stat, index) => (
         <div key={index} className="stat-item">
           <span className="stat-value">{stat.value}</span>
-          <span className="stat-label">{highlightNumbers(stat.label)}</span>
+          <span className="stat-label">
+            {stat.label.split('\n').map((line, lineIndex, lines) => (
+              <span key={lineIndex}>
+                {highlightNumbers(line)}
+                {lineIndex < lines.length - 1 && <br />}
+              </span>
+            ))}
+          </span>
         </div>
       ))}
     </div>

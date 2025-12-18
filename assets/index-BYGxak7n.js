@@ -48,11 +48,10 @@ Error generating stack: `+e.message+`
 
 ### 시스템 인프라 구축
 - **다단계 승인 시스템**: 안정성과 효율성 확보
-- **실시간 대시보드**: 투명한 성과 조회 환경 제공
+- **대시보드**: 성과 조회 환경 제공
 - **SAP 연동 자동 정산**: 월단위 성과 집계 및 지급 처리
 
 ### 미래 계획
-- **2027년 400억원 매출 목표** 설정
 - 지속 가능한 인플루언서 생태계 구축
             `},{type:"content",title:"리뷰",images:["/2025-explorer-squad/images/review.png","/2025-explorer-squad/images/review2.png","/2025-explorer-squad/images/review3.png"],content:`
 ## 2025년 리뷰 영역 성과
@@ -65,7 +64,7 @@ Error generating stack: `+e.message+`
 - 홈&GNB 통합 개발
 - 상품탭 개발 완료
 - API 지원 & 컴포넌트 제공
-            `},{type:"content",title:"라이브",images:["/2025-explorer-squad/images/live.png","/2025-explorer-squad/images/live.png","/2025-explorer-squad/images/live.png"],content:`
+            `},{type:"content",title:"라이브",images:["/2025-explorer-squad/images/live.png","/2025-explorer-squad/images/live1.png","/2025-explorer-squad/images/live.png"],content:`
 ## 2025년 라이브 영역 성과
 
 ### 파트너 라이브 플랫폼 구축 완료

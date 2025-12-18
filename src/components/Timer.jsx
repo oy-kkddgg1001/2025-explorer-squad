@@ -13,6 +13,14 @@ function Timer() {
     return 5 * 60 // 5분 = 300초
   })
 
+  // 컴포넌트 마운트 확인을 위한 로그 (개발 환경에서만)
+  useEffect(() => {
+    console.log('Timer 컴포넌트가 마운트되었습니다')
+    return () => {
+      console.log('Timer 컴포넌트가 언마운트되었습니다')
+    }
+  }, [])
+
   const [isRunning, setIsRunning] = useState(() => {
     const saved = localStorage.getItem('presentationTimer')
     return saved ? JSON.parse(saved).isRunning : false
@@ -30,7 +38,7 @@ function Timer() {
     }
     return {
       x: 20, // 왼쪽에서 20px 떨어진 위치
-      y: window.innerHeight - 200  // 아래에서 200px 떨어진 위치
+      y: 100 // 위에서 100px 떨어진 안전한 위치
     }
   })
 

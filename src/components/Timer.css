@@ -9,14 +9,14 @@
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   min-width: 180px;
-  z-index: 1000;
+  z-index: 10000;
   transition: box-shadow 0.3s ease;
   user-select: none;
 }
 
 .timer.dragging {
   box-shadow: 0 12px 48px rgba(0, 0, 0, 0.7);
-  z-index: 1001;
+  z-index: 10001;
 }
 
 .timer.warning {
@@ -199,7 +199,7 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  z-index: 1000;
+  z-index: 10000;
   transition: all 0.3s ease;
   user-select: none;
 }

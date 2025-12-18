@@ -15,7 +15,7 @@ function TimelineChart({ projects, onProjectClick }) {
         {/* 월 헤더 */}
         <div className="timeline-header">
           <div className="project-label-header">프로젝트</div>
-          {months.map((month, index) => (
+          {months.map((month) => (
             <div key={month} className="month-header">
               {month}
             </div>

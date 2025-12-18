@@ -12,7 +12,7 @@ function ProjectDetail({ project, onClose }) {
           <span className="modal-icon">{project.icon}</span>
           <h2>{project.name}</h2>
           <span className={`modal-status ${project.status}`}>
-            {project.status === 'completed' ? '✅ 완료' : '🔄 진행중'}
+            {project.status === 'completed' ? '✅ 완료' : '✅ 완료'}
           </span>
         </div>
 

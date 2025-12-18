@@ -4,6 +4,7 @@ import IntroSlide from './components/slides/IntroSlide'
 import ContentSlide from './components/slides/ContentSlide'
 import StatsSlide from './components/slides/StatsSlide'
 import TimelineSlide from './components/slides/TimelineSlide'
+import Timer from './components/Timer'
 import './PresentationApp.css'
 
 function PresentationApp({ onExitPresentation, discoverySquadData }) {
@@ -31,7 +32,7 @@ function PresentationApp({ onExitPresentation, discoverySquadData }) {
             title: '2025년 주요 성과',
             subtitle: '각 영역별 핵심 성과',
             stats: [
-              { value: '셔터', label: '전시게시물 49,751건 | 숏폼 9,594건' },
+              { value: '셔터', label: '전시게시물 49,751건 | 숏폼 9,594건 \n 유니크 액티브 유저 24년 289만 → 25년 387만' },
               { value: '어필리에이트', label: '파트너 8,706명 | 순매출 47.7억' },
               { value: '리뷰', label: '모던 아키텍처(LIT) 전환 / AI 리뷰 요약' },
               { value: '라이브', label: '브랜드사 방송 인프라 구축 \n 지속적 확대로 매월 10-15개 브랜드 참여 중' }
@@ -119,8 +120,8 @@ function PresentationApp({ onExitPresentation, discoverySquadData }) {
 - DX / UX 대폭 증대
 
 ### 주요 작업
-- 홈&GNB 통합 개발
-- 상품탭 개발 완료
+- 홈&GNB 리뷰 & 셔터 데이터 노출 지원
+- 상품상세 > 리뷰탭 개발 완료
 - API 지원 & 컴포넌트 제공
             `
           },
@@ -132,7 +133,6 @@ function PresentationApp({ onExitPresentation, discoverySquadData }) {
             images: [
               `${import.meta.env.BASE_URL}images/live.png`,
               `${import.meta.env.BASE_URL}images/live1.png`,
-              `${import.meta.env.BASE_URL}images/live.png`
             ],
             content: `
 ## 2025년 라이브 영역 성과
@@ -169,12 +169,11 @@ function PresentationApp({ onExitPresentation, discoverySquadData }) {
 ## 2026년 핵심 목표
 - **콘텐츠 허브 구축**: 통합된 콘텐츠 생태계 완성
 - **개인화 서비스**: AI 기반 맞춤형 콘텐츠 추천
-- **사용자 경험 혁신**: 더 재미있고 유용한 발견 경험
-
-## 기술적 도전 과제
-- **콘텐츠 특성을 살린** 새로운 기술 도입
-- **색다른 시각**에서의 개발 접근법
-- 정답이 없는 영역에서의 **창의적 해결책**
+- **플랫폼 어필리에이트 확장**: 샵백, 토스쇼핑 등 협력사 커뮤니케이션 연계
+- **리뷰 서비스 기술 혁신**: 3단계 로드맵으로 '참고 정보'에서 '구매 결정 핵심 콘텐츠'로 전환
+    - **Phase 1**: 리뷰 작성률 개선(3.8%→상향), AI 품질 모니터링, 탑리뷰어 2,000명 확대
+    - **Phase 2**: 개인화 텍스트 탐색, 이미지 클러스터링, 대화형 검색
+    - **Phase 3**: 리뷰 숏폼화, 발견탭 연계, 발견형 쇼핑 전환율 극대화
 
 ## 발견스쿼드의 미래
 - 매번 새로운 시각으로 문제 해결
@@ -183,29 +182,71 @@ function PresentationApp({ onExitPresentation, discoverySquadData }) {
             `
           },
 
-          // 6. 마무리 - Q&A
+          // 8. 엔딩 크레딧
           {
             type: 'content',
-            title: 'Q&A',
+            title: '감사합니다',
             layout: 'center',
             content: `
-# 질문과 답변
-
-## 궁금한 점이 있으시다면 언제든 물어보세요!
 
 ---
 
-### 연락처
-**발견스쿼드 팀**
+### **Team Members**
 
-### 참고 자료
-- 프로젝트 상세 문서
-- 기술 블로그 포스팅
-- 성과 측정 대시보드
+**발견스쿼드** 전체 구성원들의 노력으로 만들어진 성과입니다
 
 ---
 
-## 함께해 주셔서 감사합니다!
+### **우리 스쿼드를 빛낸 소중한 분들**
+
+**🙏 안태건님** - 리뷰의 아버지 중심을 잡아주셔서 감사합니다
+
+---
+
+**💪 이완수님** - 어필리에이트 정산 시스템 구축, 정말 고생 많으셨습니다
+
+---
+
+**🌟 정주현님** - 새로운 바람으로 콘텐츠 개인화에 한 발 더 나아가게 해주셨네요
+
+---
+
+**📊 박보라님** - 콘텐츠 성능 분석과 고민을 함께해주셔서 감사합니다
+
+---
+
+**⭐ 오준석님** - 우리 스쿼드의 스타! 리뷰 신규아키텍처와 발견탭을 완벽하게 마무리해주셨습니다
+
+---
+
+**🎬 정인진님** - 라이브의 거장! 파트너 라이브 플랫폼 구축과 이벤트 당첨 자동화까지 너무 고생하셨어요
+
+---
+
+**📝 김예은님** - 예맨! 라이브 예고와 매거진 업무 고생하셨습니다. 앞으로 함께 고민해요!
+
+---
+
+**👨‍💼 어준호팀장님** - 끝으로 저희가 미처 확인하지 못 한 부분을 세심하게 짚어주시며 방향을 제시해주시는 팀장님 너무 감사합니다
+
+---
+
+### **2026년을 향한 여정**
+
+더 재미있는 도전이 기다리고 있습니다
+함께 만들어가는 **발견스쿼드**의 내일을 기대해주세요
+
+---
+
+**궁금한 점이 있으시면 언제든 문의해주세요!**
+
+### **Contact**
+**발견스쿼드**
+*UGC/크리에이터 콘텐츠 생태계를 구축하는 스쿼드*
+
+---
+
+## **END**
             `
           }
         ]
@@ -252,6 +293,8 @@ function PresentationApp({ onExitPresentation, discoverySquadData }) {
         slides={slides}
         onExitPresentation={onExitPresentation}
       />
+      {/* 발표 타이머 */}
+      <Timer />
     </div>
   )
 }

@@ -5,6 +5,7 @@ import AreaCards from './components/AreaCards'
 import Milestones from './components/Milestones'
 import ProjectDetail from './components/ProjectDetail'
 import PresentationApp from './PresentationApp'
+import Timer from './components/Timer'
 
 const projectsData = [
   {
@@ -58,11 +59,11 @@ const projectsData = [
     phases: [
       { month: 5, type: 'dev', label: 'P1', tooltip: 'Phase 1 시작 및 완료' },
       { month: 10, type: 'dev', label: 'P2', tooltip: 'Phase 2 기획: 10/1' },
-      { month: 11, type: 'dev', label: '개발', tooltip: '개발완료 예정: 11/24' },
-      { month: 12, type: 'dev', label: '배포', tooltip: 'QA: 11/25 시작\n배포: 12/18 예정' },
+      { month: 11, type: 'dev', label: '개발', tooltip: '개발완료: 11/24' },
+      { month: 12, type: 'dev', label: '배포', tooltip: 'QA: 11/25 시작\n배포: 12/18 완료' },
     ],
-    status: 'in-progress',
-    achievement: '12월 18일 배포 예정',
+    status: 'completed',
+    achievement: '발견탭 Phase 2 배포 완료',
   },
 ]
 
@@ -144,7 +145,7 @@ const milestonesData = [
   { date: '9월 11일', title: '리뷰탭 모던아키텍처 & 홈GNB 통합 배포', desc: 'Web Component(LIT) 기반 홈&GNB 배포, API 지원 & 컴포넌트 제공' },
   { date: '9월 18일', title: '어필리에이트 Phase 2 완성', desc: '정산금 지급 시스템 완료' },
   { date: '11월 10일', title: '리뷰탭 상품탭 점진오픈', desc: '37/37 티켓 100% 완료' },
-  { date: '12월 18일', title: '발견탭 Phase 2 배포', desc: '통합 콘텐츠 경험 개선 (예정)' },
+  { date: '12월 18일', title: '발견탭 Phase 2 배포 완료', desc: '통합 콘텐츠 경험 개선 완료' },
 ]
 
 const discoveryCardsData = [
@@ -344,6 +345,9 @@ function App() {
           onClose={() => setSelectedProject(null)}
         />
       )}
+
+      {/* 발표 타이머 */}
+      <Timer />
     </div>
   )
 }
